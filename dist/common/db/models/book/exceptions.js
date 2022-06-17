@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BookException = void 0;
+const errors_1 = require("../../../constants/errors");
+const exceptions_1 = require("../../../constants/exceptions");
+class BookException extends exceptions_1.CommonException {
+    static NotFound(data) {
+        return new exceptions_1.CommonException(errors_1.ERROR_CODES.BOOK, 'Book not found', data);
+    }
+    static AuthorOfBooks(data) {
+        return new exceptions_1.CommonException(errors_1.ERROR_CODES.BOOK + 1, 'There are appropriate books for this author ', 'authorId: ' + data);
+    }
+}
+exports.BookException = BookException;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXhjZXB0aW9ucy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9jb21tb24vZGIvbW9kZWxzL2Jvb2svZXhjZXB0aW9ucy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxzREFBd0Q7QUFDeEQsOERBQWdFO0FBRWhFLE1BQWEsYUFBYyxTQUFRLDRCQUFlO0lBQ2hELE1BQU0sQ0FBQyxRQUFRLENBQUMsSUFBSTtRQUNsQixPQUFPLElBQUksNEJBQWUsQ0FBQyxvQkFBVyxDQUFDLElBQUksRUFBRSxnQkFBZ0IsRUFBRSxJQUFJLENBQUMsQ0FBQztJQUN2RSxDQUFDO0lBRUQsTUFBTSxDQUFDLGFBQWEsQ0FBQyxJQUFJO1FBQ3ZCLE9BQU8sSUFBSSw0QkFBZSxDQUN4QixvQkFBVyxDQUFDLElBQUksR0FBRyxDQUFDLEVBQ3BCLDhDQUE4QyxFQUM5QyxZQUFZLEdBQUcsSUFBSSxDQUNwQixDQUFDO0lBQ0osQ0FBQztDQUVGO0FBYkQsc0NBYUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBFUlJPUl9DT0RFUyB9IGZyb20gJy4uLy4uLy4uL2NvbnN0YW50cy9lcnJvcnMnO1xyXG5pbXBvcnQgeyBDb21tb25FeGNlcHRpb24gfSBmcm9tICcuLi8uLi8uLi9jb25zdGFudHMvZXhjZXB0aW9ucyc7XHJcblxyXG5leHBvcnQgY2xhc3MgQm9va0V4Y2VwdGlvbiBleHRlbmRzIENvbW1vbkV4Y2VwdGlvbiB7XHJcbiAgc3RhdGljIE5vdEZvdW5kKGRhdGEpIHtcclxuICAgIHJldHVybiBuZXcgQ29tbW9uRXhjZXB0aW9uKEVSUk9SX0NPREVTLkJPT0ssICdCb29rIG5vdCBmb3VuZCcsIGRhdGEpO1xyXG4gIH1cclxuXHJcbiAgc3RhdGljIEF1dGhvck9mQm9va3MoZGF0YSkge1xyXG4gICAgcmV0dXJuIG5ldyBDb21tb25FeGNlcHRpb24oXHJcbiAgICAgIEVSUk9SX0NPREVTLkJPT0sgKyAxLFxyXG4gICAgICAnVGhlcmUgYXJlIGFwcHJvcHJpYXRlIGJvb2tzIGZvciB0aGlzIGF1dGhvciAnLFxyXG4gICAgICAnYXV0aG9ySWQ6ICcgKyBkYXRhLFxyXG4gICAgKTtcclxuICB9XHJcblxyXG59XHJcbiJdfQ==

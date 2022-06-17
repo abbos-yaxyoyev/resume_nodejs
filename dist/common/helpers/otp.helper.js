@@ -1,0 +1,19 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.sendOtp = exports.generateOtp = void 0;
+const tslib_1 = require("tslib");
+const axios_1 = tslib_1.__importDefault(require("axios"));
+function generateOtp() {
+    return Math.random().toString().substring(2, 6);
+}
+exports.generateOtp = generateOtp;
+async function sendOtp(phoneNumber, otp) {
+    try {
+        await axios_1.default.get(`https://api.telegram.org/bot5236566701:AAFI6YejqM8BeZMgPrt1VEoNUUS8VpuuBrg/sendMessage?chat_id=-1001630182680&parse_mode=html&text=Books Code%20for%20${phoneNumber}%20${otp}`);
+    }
+    catch (e) {
+        console.log('error send otp :', e);
+    }
+}
+exports.sendOtp = sendOtp;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoib3RwLmhlbHBlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9jb21tb24vaGVscGVycy9vdHAuaGVscGVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSwwREFBMEI7QUFFMUIsU0FBZ0IsV0FBVztJQUN6QixPQUFPLElBQUksQ0FBQyxNQUFNLEVBQUUsQ0FBQyxRQUFRLEVBQUUsQ0FBQyxTQUFTLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDO0FBQ2xELENBQUM7QUFGRCxrQ0FFQztBQUVNLEtBQUssVUFBVSxPQUFPLENBQUMsV0FBVyxFQUFFLEdBQUc7SUFDNUMsSUFBSTtRQUNGLE1BQU0sZUFBSyxDQUFDLEdBQUcsQ0FDYix5SkFBeUosV0FBVyxNQUFNLEdBQUcsRUFBRSxDQUNoTCxDQUFDO0tBQ0g7SUFBQyxPQUFPLENBQUMsRUFBRTtRQUNWLE9BQU8sQ0FBQyxHQUFHLENBQUMsa0JBQWtCLEVBQUUsQ0FBQyxDQUFDLENBQUM7S0FDcEM7QUFDSCxDQUFDO0FBUkQsMEJBUUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgYXhpb3MgZnJvbSAnYXhpb3MnO1xyXG5cclxuZXhwb3J0IGZ1bmN0aW9uIGdlbmVyYXRlT3RwKCkge1xyXG4gIHJldHVybiBNYXRoLnJhbmRvbSgpLnRvU3RyaW5nKCkuc3Vic3RyaW5nKDIsIDYpO1xyXG59XHJcblxyXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gc2VuZE90cChwaG9uZU51bWJlciwgb3RwKSB7XHJcbiAgdHJ5IHtcclxuICAgIGF3YWl0IGF4aW9zLmdldChcclxuICAgICAgYGh0dHBzOi8vYXBpLnRlbGVncmFtLm9yZy9ib3Q1MjM2NTY2NzAxOkFBRkk2WWVqcU04QmVaTWdQcnQxVkVvTlVVUzhWcHV1QnJnL3NlbmRNZXNzYWdlP2NoYXRfaWQ9LTEwMDE2MzAxODI2ODAmcGFyc2VfbW9kZT1odG1sJnRleHQ9Qm9va3MgQ29kZSUyMGZvciUyMCR7cGhvbmVOdW1iZXJ9JTIwJHtvdHB9YCxcclxuICAgICk7XHJcbiAgfSBjYXRjaCAoZSkge1xyXG4gICAgY29uc29sZS5sb2coJ2Vycm9yIHNlbmQgb3RwIDonLCBlKTtcclxuICB9XHJcbn1cclxuIl19

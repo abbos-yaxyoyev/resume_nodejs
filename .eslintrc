@@ -8,6 +8,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "prefer-const": 0
+    "prefer-const": 0,
+    "@typescript-eslint/no-var-requires": true
   }
 }

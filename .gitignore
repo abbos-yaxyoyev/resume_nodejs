@@ -1,6 +1,8 @@
 node_modules
 package-lock.json
 *.pem
+.eslintrc
+.prettierrc
 typings
 .vscode
 yarn.lock

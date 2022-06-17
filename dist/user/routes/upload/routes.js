@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.uploadFileRoutes = void 0;
+const routes_1 = require("../../../upload/routes");
+const authenticate_1 = require("../../middleware/authenticate");
+exports.uploadFileRoutes = (0, routes_1.uploadFile)(authenticate_1.authUser);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicm91dGVzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vc3JjL3VzZXIvcm91dGVzL3VwbG9hZC9yb3V0ZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsbURBQW9EO0FBQ3BELGdFQUF5RDtBQUM1QyxRQUFBLGdCQUFnQixHQUFHLElBQUEsbUJBQVUsRUFBQyx1QkFBUSxDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1cGxvYWRGaWxlIH0gZnJvbSAnLi4vLi4vLi4vdXBsb2FkL3JvdXRlcyc7XHJcbmltcG9ydCB7IGF1dGhVc2VyIH0gZnJvbSAnLi4vLi4vbWlkZGxld2FyZS9hdXRoZW50aWNhdGUnO1xyXG5leHBvcnQgY29uc3QgdXBsb2FkRmlsZVJvdXRlcyA9IHVwbG9hZEZpbGUoYXV0aFVzZXIpO1xyXG4iXX0=
