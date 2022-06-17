@@ -1,10 +1,10 @@
 import { Types } from 'mongoose';
 import { Roles } from '../../../common/constants/roles';
+import { CourseException } from '../../../common/db/models/course/exceptions';
 import { courseService } from '../../../common/service/course/course.service';
 import { roleService } from '../../../common/service/employee/role/role.service';
+import { CourseDto, CourseDtoGroup, CourseGetDto } from '../../../common/validation/dto/course/course.dto';
 import { validateIt } from '../../../common/validation/validate';
-import { CourseException } from './../../../common/db/models/course/exceptions';
-import { CourseDto, CourseDtoGroup, CourseGetDto } from './../../../common/validation/dto/course/course.dto';
 
 export async function createCourseHandler(request, reply) {
   try {

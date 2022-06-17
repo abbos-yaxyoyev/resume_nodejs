@@ -1,9 +1,9 @@
 import { Roles } from "../../../../common/constants/roles";
 import { CoursesOfUserException } from '../../../../common/db/models/course/coresesOfUsers/exceptions';
+import { coursesOfUserService } from '../../../../common/service/course/coursesOfUser/coursesOfUser.service';
 import { roleService } from "../../../../common/service/employee/role/role.service";
+import { CourseOfUserDto, CourseOfUserDtoGroup } from '../../../../common/validation/dto/course/coursesOfUser/coursesOfUser.dto';
 import { validateIt } from "../../../../common/validation/validate";
-import { coursesOfUserService } from './../../../../common/service/course/coursesOfUser/coursesOfUser.service';
-import { CourseOfUserDto, CourseOfUserDtoGroup } from './../../../../common/validation/dto/course/coursesOfUser/coursesOfUser.dto';
 
 export async function getUsersOfCourseHandler(request, reply) {
   try {

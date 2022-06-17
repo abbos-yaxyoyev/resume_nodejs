@@ -4,9 +4,8 @@ import { EmployeeException } from '../../common/db/models/employee/exception';
 import { jwtSign } from '../../common/plugin/authPlugin';
 import { employeeService } from '../../common/service/employee/employee.service';
 import { roleService } from '../../common/service/employee/role/role.service';
-import { EmployeeDto, EmployeeDtoGroup } from '../../common/validation/dto/commonUser/employee/employee.dto';
+import { EmployeeDto, EmployeeDtoGroup, EmployeeGetDto } from '../../common/validation/dto/commonUser/employee/employee.dto';
 import { validateIt } from '../../common/validation/validate';
-import { EmployeeGetDto } from './../../common/validation/dto/commonUser/employee/employee.dto';
 
 //! create employee by moderator
 export async function createEmployeeHandler(request, reply) {

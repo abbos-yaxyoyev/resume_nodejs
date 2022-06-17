@@ -1,9 +1,9 @@
 import { Roles } from '../../common/constants/roles';
+import { UserException } from '../../common/db/models/user/exception';
 import { roleService } from '../../common/service/employee/role/role.service';
 import { userService } from '../../common/service/user/user.service';
 import { UserDtoGroup, UserGetDto } from '../../common/validation/dto/commonUser/user/user.dto';
 import { validateIt } from '../../common/validation/validate';
-import { UserException } from './../../common/db/models/user/exception';
 
 
 export async function getPagingUserHandler(request, reply) {
