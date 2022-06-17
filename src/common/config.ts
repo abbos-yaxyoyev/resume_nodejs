@@ -12,7 +12,7 @@ export const ENV = {
   DB_URL: process.env.DB_URL || `mongodb+srv://mongofastify:nodefastify@cluster0.ipnzs.mongodb.net/Courses?retryWrites=true&w=majority/Bookuz`,
   HOST: process.env.HOST || '0.0.0.0',
   ADMIN_PORT: parseInt(process.env.EMPLOYEE_PORT) || 3000,
-  USER_PORT: parseInt(process.env.USER_PORT) || 80,
+  USER_PORT: parseInt(process.env.USER_PORT) || 4000,
   UPLOAD_PORT: parseInt(process.env.UPLOAD_PORT) || 5000,
   JWT_SECRET: process.env.JWT_SECRET || 'JWT_SECRET',
   JWT_EXPIRE: process.env.JWT_EXPIRE || '1W',
