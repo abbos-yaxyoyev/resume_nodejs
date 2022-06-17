@@ -35,4 +35,4 @@ export async function pl(instance, _, next) {
   next();
 }
 
-export const routesPlugin = fp(pl);
+export const routesEmployeePlugin = fp(pl);

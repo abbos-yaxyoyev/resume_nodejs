@@ -6,14 +6,11 @@
   "scripts": {
     "build": "tsc",
     "deploy": "scp -r dist package.json root@135.181.193.100:/root/Apps/Bookuz",
-    "start-employee": "node ./dist/employee/server.js",
-    "start-user": "node ./dist/user/server.js",
-    "dev-employee": "nodemon --exec ts-node -- --files ./src/employee/server.ts",
-    "dev-user": "nodemon --exec ts-node -- --files ./src/user/server.ts",
-    "dev": "concurrently --kill-others \"yarn run dev-employee\" \"yarn run dev-user\"",
-    "start": "concurrently --kill-others \"yarn run start-employee\" \"yarn run start-user\"",
+    "start-prod": "node ./dist/server.js",
+    "dev": "nodemon --exec ts-node -- --files ./src/server.ts",
+    "start": "concurrently --kill-others \"yarn run start-prod\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier 'src/**/*.ts'",
+    "prettier": "prettier  'src/**/*.ts'",
     "prettier:fix": "prettier --write 'src/**/*.ts'",
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix"

@@ -33,5 +33,5 @@ export const API = {
   paysys_api: process.env.PAYSYS_API || '',
 };
 
-// ADMIN_API=/employee
-// USER_API=/user
+// ADMIN_API = /employee
+// USER_API = /user

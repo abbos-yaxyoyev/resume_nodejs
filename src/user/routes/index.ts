@@ -4,7 +4,6 @@ import { bookRoutes } from './book/routes';
 import { coursesOfUserRoutes } from './course/coursesOfUser/routes';
 import { courseRoutes } from './course/routes';
 import { genreRoutes } from './genre/routes';
-import { uploadFileRoutes } from './upload/routes';
 import { userRoutes } from './user/routes';
 
 
@@ -14,7 +13,7 @@ const routes = [
   ...genreRoutes,
   ...authorRoutes,
   ...courseRoutes,
-  ...uploadFileRoutes,
+  // ...uploadFileRoutes,
   ...coursesOfUserRoutes,
 ];
 
@@ -29,4 +28,4 @@ export async function pl(instance, _, next) {
   next();
 }
 
-export const routesPlugin = fp(pl);
+export const routesUserPlugin = fp(pl);
