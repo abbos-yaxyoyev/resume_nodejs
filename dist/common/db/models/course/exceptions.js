@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CourseException = void 0;
+const errors_1 = require("../../../constants/errors");
+const exceptions_1 = require("../../../constants/exceptions");
+class CourseException extends exceptions_1.CommonException {
+    static NotFound(data) {
+        return new exceptions_1.CommonException(errors_1.ERROR_CODES.COURSE, 'course not found', data);
+    }
+}
+exports.CourseException = CourseException;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXhjZXB0aW9ucy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9jb21tb24vZGIvbW9kZWxzL2NvdXJzZS9leGNlcHRpb25zLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLHNEQUF3RDtBQUN4RCw4REFBZ0U7QUFFaEUsTUFBYSxlQUFnQixTQUFRLDRCQUFlO0lBQ2xELE1BQU0sQ0FBQyxRQUFRLENBQUMsSUFBSTtRQUNsQixPQUFPLElBQUksNEJBQWUsQ0FBQyxvQkFBVyxDQUFDLE1BQU0sRUFBRSxrQkFBa0IsRUFBRSxJQUFJLENBQUMsQ0FBQztJQUMzRSxDQUFDO0NBQ0Y7QUFKRCwwQ0FJQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEVSUk9SX0NPREVTIH0gZnJvbSAnLi4vLi4vLi4vY29uc3RhbnRzL2Vycm9ycyc7XHJcbmltcG9ydCB7IENvbW1vbkV4Y2VwdGlvbiB9IGZyb20gJy4uLy4uLy4uL2NvbnN0YW50cy9leGNlcHRpb25zJztcclxuXHJcbmV4cG9ydCBjbGFzcyBDb3Vyc2VFeGNlcHRpb24gZXh0ZW5kcyBDb21tb25FeGNlcHRpb24ge1xyXG4gIHN0YXRpYyBOb3RGb3VuZChkYXRhKSB7XHJcbiAgICByZXR1cm4gbmV3IENvbW1vbkV4Y2VwdGlvbihFUlJPUl9DT0RFUy5DT1VSU0UsICdjb3Vyc2Ugbm90IGZvdW5kJywgZGF0YSk7XHJcbiAgfVxyXG59XHJcbiJdfQ==

@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AuthorException = void 0;
+const errors_1 = require("../../../constants/errors");
+const exceptions_1 = require("../../../constants/exceptions");
+class AuthorException extends exceptions_1.CommonException {
+    static NotFound(data) {
+        return new exceptions_1.CommonException(errors_1.ERROR_CODES.AUTHOR, 'Author not found', data);
+    }
+    static DeletedAuthor(data) {
+        return new exceptions_1.CommonException(errors_1.ERROR_CODES.AUTHOR + 1, `books have got authorId ${data}`, data);
+    }
+}
+exports.AuthorException = AuthorException;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXhjZXB0aW9uLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vc3JjL2NvbW1vbi9kYi9tb2RlbHMvYXV0aG9yL2V4Y2VwdGlvbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxzREFBd0Q7QUFDeEQsOERBQWdFO0FBRWhFLE1BQWEsZUFBZ0IsU0FBUSw0QkFBZTtJQUNsRCxNQUFNLENBQUMsUUFBUSxDQUFDLElBQUk7UUFDbEIsT0FBTyxJQUFJLDRCQUFlLENBQUMsb0JBQVcsQ0FBQyxNQUFNLEVBQUUsa0JBQWtCLEVBQUUsSUFBSSxDQUFDLENBQUM7SUFDM0UsQ0FBQztJQUVELE1BQU0sQ0FBQyxhQUFhLENBQUMsSUFBSTtRQUN2QixPQUFPLElBQUksNEJBQWUsQ0FBQyxvQkFBVyxDQUFDLE1BQU0sR0FBRyxDQUFDLEVBQUUsMkJBQTJCLElBQUksRUFBRSxFQUFFLElBQUksQ0FBQyxDQUFDO0lBQzlGLENBQUM7Q0FDRjtBQVJELDBDQVFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgRVJST1JfQ09ERVMgfSBmcm9tICcuLi8uLi8uLi9jb25zdGFudHMvZXJyb3JzJztcclxuaW1wb3J0IHsgQ29tbW9uRXhjZXB0aW9uIH0gZnJvbSAnLi4vLi4vLi4vY29uc3RhbnRzL2V4Y2VwdGlvbnMnO1xyXG5cclxuZXhwb3J0IGNsYXNzIEF1dGhvckV4Y2VwdGlvbiBleHRlbmRzIENvbW1vbkV4Y2VwdGlvbiB7XHJcbiAgc3RhdGljIE5vdEZvdW5kKGRhdGEpIHtcclxuICAgIHJldHVybiBuZXcgQ29tbW9uRXhjZXB0aW9uKEVSUk9SX0NPREVTLkFVVEhPUiwgJ0F1dGhvciBub3QgZm91bmQnLCBkYXRhKTtcclxuICB9XHJcblxyXG4gIHN0YXRpYyBEZWxldGVkQXV0aG9yKGRhdGEpIHtcclxuICAgIHJldHVybiBuZXcgQ29tbW9uRXhjZXB0aW9uKEVSUk9SX0NPREVTLkFVVEhPUiArIDEsIGBib29rcyBoYXZlIGdvdCBhdXRob3JJZCAke2RhdGF9YCwgZGF0YSk7XHJcbiAgfVxyXG59XHJcbiJdfQ==

@@ -1,0 +1,44 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getCoursesOfUserHandler = exports.getUsersOfCourseHandler = void 0;
+const roles_1 = require("../../../../common/constants/roles");
+const exceptions_1 = require("../../../../common/db/models/course/coresesOfUsers/exceptions");
+const role_service_1 = require("../../../../common/service/employee/role/role.service");
+const validate_1 = require("../../../../common/validation/validate");
+const coursesOfUser_service_1 = require("./../../../../common/service/course/coursesOfUser/coursesOfUser.service");
+const coursesOfUser_dto_1 = require("./../../../../common/validation/dto/course/coursesOfUser/coursesOfUser.dto");
+async function getUsersOfCourseHandler(request, reply) {
+    try {
+        await role_service_1.roleService.hasAccess(request.admin.roleId, roles_1.Roles.COURSE);
+        let data = await (0, validate_1.validateIt)(request.params, coursesOfUser_dto_1.CourseOfUserDto, [coursesOfUser_dto_1.CourseOfUserDtoGroup.GET_BY_ID]);
+        const course = await coursesOfUser_service_1.coursesOfUserService.getUsersOfCourse(data._id);
+        return reply.success(course);
+    }
+    catch (e) {
+        if (e instanceof exceptions_1.CoursesOfUserException) {
+            throw e;
+        }
+        else {
+            throw exceptions_1.CoursesOfUserException.UnknownError(e);
+        }
+    }
+}
+exports.getUsersOfCourseHandler = getUsersOfCourseHandler;
+async function getCoursesOfUserHandler(request, reply) {
+    try {
+        await role_service_1.roleService.hasAccess(request.admin.roleId, roles_1.Roles.COURSE);
+        let data = await (0, validate_1.validateIt)(request.params, coursesOfUser_dto_1.CourseOfUserDto, [coursesOfUser_dto_1.CourseOfUserDtoGroup.GET_BY_ID]);
+        const course = await coursesOfUser_service_1.coursesOfUserService.getCoursesOfUser(data._id);
+        return reply.success(course);
+    }
+    catch (e) {
+        if (e instanceof exceptions_1.CoursesOfUserException) {
+            throw e;
+        }
+        else {
+            throw exceptions_1.CoursesOfUserException.UnknownError(e);
+        }
+    }
+}
+exports.getCoursesOfUserHandler = getCoursesOfUserHandler;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY291cnNlc09mVXNlci5oYW5kbGVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vc3JjL0VtcGxveWVlL2hhbmRsZXJzL2NvdXJzZS9jb3Vyc2VzT2ZVc2VyL2NvdXJzZXNPZlVzZXIuaGFuZGxlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSw4REFBMkQ7QUFDM0QsOEZBQXVHO0FBQ3ZHLHdGQUFvRjtBQUNwRixxRUFBb0U7QUFDcEUsbUhBQStHO0FBQy9HLGtIQUFtSTtBQUU1SCxLQUFLLFVBQVUsdUJBQXVCLENBQUMsT0FBTyxFQUFFLEtBQUs7SUFDMUQsSUFBSTtRQUVGLE1BQU0sMEJBQVcsQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLEtBQUssQ0FBQyxNQUFNLEVBQUUsYUFBSyxDQUFDLE1BQU0sQ0FBQyxDQUFDO1FBRWhFLElBQUksSUFBSSxHQUFHLE1BQU0sSUFBQSxxQkFBVSxFQUFDLE9BQU8sQ0FBQyxNQUFNLEVBQUUsbUNBQWUsRUFBRSxDQUFDLHdDQUFvQixDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUM7UUFFL0YsTUFBTSxNQUFNLEdBQUcsTUFBTSw0Q0FBb0IsQ0FBQyxnQkFBZ0IsQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUE7UUFFcEUsT0FBTyxLQUFLLENBQUMsT0FBTyxDQUFDLE1BQU0sQ0FBQyxDQUFDO0tBRTlCO0lBQUMsT0FBTyxDQUFDLEVBQUU7UUFDVixJQUFJLENBQUMsWUFBWSxtQ0FBc0IsRUFBRTtZQUN2QyxNQUFNLENBQUMsQ0FBQztTQUNUO2FBQU07WUFDTCxNQUFNLG1DQUFzQixDQUFDLFlBQVksQ0FBQyxDQUFDLENBQUMsQ0FBQztTQUM5QztLQUNGO0FBQ0gsQ0FBQztBQWxCRCwwREFrQkM7QUFFTSxLQUFLLFVBQVUsdUJBQXVCLENBQUMsT0FBTyxFQUFFLEtBQUs7SUFDMUQsSUFBSTtRQUVGLE1BQU0sMEJBQVcsQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLEtBQUssQ0FBQyxNQUFNLEVBQUUsYUFBSyxDQUFDLE1BQU0sQ0FBQyxDQUFDO1FBRWhFLElBQUksSUFBSSxHQUFHLE1BQU0sSUFBQSxxQkFBVSxFQUFDLE9BQU8sQ0FBQyxNQUFNLEVBQUUsbUNBQWUsRUFBRSxDQUFDLHdDQUFvQixDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUM7UUFFL0YsTUFBTSxNQUFNLEdBQUcsTUFBTSw0Q0FBb0IsQ0FBQyxnQkFBZ0IsQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUE7UUFFcEUsT0FBTyxLQUFLLENBQUMsT0FBTyxDQUFDLE1BQU0sQ0FBQyxDQUFDO0tBRTlCO0lBQUMsT0FBTyxDQUFDLEVBQUU7UUFDVixJQUFJLENBQUMsWUFBWSxtQ0FBc0IsRUFBRTtZQUN2QyxNQUFNLENBQUMsQ0FBQztTQUNUO2FBQU07WUFDTCxNQUFNLG1DQUFzQixDQUFDLFlBQVksQ0FBQyxDQUFDLENBQUMsQ0FBQztTQUM5QztLQUNGO0FBQ0gsQ0FBQztBQWxCRCwwREFrQkMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBSb2xlcyB9IGZyb20gXCIuLi8uLi8uLi8uLi9jb21tb24vY29uc3RhbnRzL3JvbGVzXCI7XHJcbmltcG9ydCB7IENvdXJzZXNPZlVzZXJFeGNlcHRpb24gfSBmcm9tICcuLi8uLi8uLi8uLi9jb21tb24vZGIvbW9kZWxzL2NvdXJzZS9jb3Jlc2VzT2ZVc2Vycy9leGNlcHRpb25zJztcclxuaW1wb3J0IHsgcm9sZVNlcnZpY2UgfSBmcm9tIFwiLi4vLi4vLi4vLi4vY29tbW9uL3NlcnZpY2UvZW1wbG95ZWUvcm9sZS9yb2xlLnNlcnZpY2VcIjtcclxuaW1wb3J0IHsgdmFsaWRhdGVJdCB9IGZyb20gXCIuLi8uLi8uLi8uLi9jb21tb24vdmFsaWRhdGlvbi92YWxpZGF0ZVwiO1xyXG5pbXBvcnQgeyBjb3Vyc2VzT2ZVc2VyU2VydmljZSB9IGZyb20gJy4vLi4vLi4vLi4vLi4vY29tbW9uL3NlcnZpY2UvY291cnNlL2NvdXJzZXNPZlVzZXIvY291cnNlc09mVXNlci5zZXJ2aWNlJztcclxuaW1wb3J0IHsgQ291cnNlT2ZVc2VyRHRvLCBDb3Vyc2VPZlVzZXJEdG9Hcm91cCB9IGZyb20gJy4vLi4vLi4vLi4vLi4vY29tbW9uL3ZhbGlkYXRpb24vZHRvL2NvdXJzZS9jb3Vyc2VzT2ZVc2VyL2NvdXJzZXNPZlVzZXIuZHRvJztcclxuXHJcbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBnZXRVc2Vyc09mQ291cnNlSGFuZGxlcihyZXF1ZXN0LCByZXBseSkge1xyXG4gIHRyeSB7XHJcblxyXG4gICAgYXdhaXQgcm9sZVNlcnZpY2UuaGFzQWNjZXNzKHJlcXVlc3QuYWRtaW4ucm9sZUlkLCBSb2xlcy5DT1VSU0UpO1xyXG5cclxuICAgIGxldCBkYXRhID0gYXdhaXQgdmFsaWRhdGVJdChyZXF1ZXN0LnBhcmFtcywgQ291cnNlT2ZVc2VyRHRvLCBbQ291cnNlT2ZVc2VyRHRvR3JvdXAuR0VUX0JZX0lEXSk7XHJcblxyXG4gICAgY29uc3QgY291cnNlID0gYXdhaXQgY291cnNlc09mVXNlclNlcnZpY2UuZ2V0VXNlcnNPZkNvdXJzZShkYXRhLl9pZClcclxuXHJcbiAgICByZXR1cm4gcmVwbHkuc3VjY2Vzcyhjb3Vyc2UpO1xyXG5cclxuICB9IGNhdGNoIChlKSB7XHJcbiAgICBpZiAoZSBpbnN0YW5jZW9mIENvdXJzZXNPZlVzZXJFeGNlcHRpb24pIHtcclxuICAgICAgdGhyb3cgZTtcclxuICAgIH0gZWxzZSB7XHJcbiAgICAgIHRocm93IENvdXJzZXNPZlVzZXJFeGNlcHRpb24uVW5rbm93bkVycm9yKGUpO1xyXG4gICAgfVxyXG4gIH1cclxufVxyXG5cclxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldENvdXJzZXNPZlVzZXJIYW5kbGVyKHJlcXVlc3QsIHJlcGx5KSB7XHJcbiAgdHJ5IHtcclxuXHJcbiAgICBhd2FpdCByb2xlU2VydmljZS5oYXNBY2Nlc3MocmVxdWVzdC5hZG1pbi5yb2xlSWQsIFJvbGVzLkNPVVJTRSk7XHJcblxyXG4gICAgbGV0IGRhdGEgPSBhd2FpdCB2YWxpZGF0ZUl0KHJlcXVlc3QucGFyYW1zLCBDb3Vyc2VPZlVzZXJEdG8sIFtDb3Vyc2VPZlVzZXJEdG9Hcm91cC5HRVRfQllfSURdKTtcclxuXHJcbiAgICBjb25zdCBjb3Vyc2UgPSBhd2FpdCBjb3Vyc2VzT2ZVc2VyU2VydmljZS5nZXRDb3Vyc2VzT2ZVc2VyKGRhdGEuX2lkKVxyXG5cclxuICAgIHJldHVybiByZXBseS5zdWNjZXNzKGNvdXJzZSk7XHJcblxyXG4gIH0gY2F0Y2ggKGUpIHtcclxuICAgIGlmIChlIGluc3RhbmNlb2YgQ291cnNlc09mVXNlckV4Y2VwdGlvbikge1xyXG4gICAgICB0aHJvdyBlO1xyXG4gICAgfSBlbHNlIHtcclxuICAgICAgdGhyb3cgQ291cnNlc09mVXNlckV4Y2VwdGlvbi5Vbmtub3duRXJyb3IoZSk7XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcbiJdfQ==

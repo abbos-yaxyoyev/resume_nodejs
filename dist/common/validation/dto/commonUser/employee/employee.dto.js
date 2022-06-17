@@ -1,0 +1,32 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EmployeeGetDto = exports.EmployeeDto = exports.EmployeeDtoGroup = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+const paging_dto_1 = require("../../paging.dto");
+const commonUser_dto_1 = require("../commonUser.dto");
+class EmployeeDtoGroup extends commonUser_dto_1.CommonUserDtoGroup {
+}
+exports.EmployeeDtoGroup = EmployeeDtoGroup;
+class EmployeeDto extends commonUser_dto_1.CommonUserDto {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)({ groups: [EmployeeDtoGroup.UPDATE] }),
+    (0, class_validator_1.IsMongoId)({ groups: [EmployeeDtoGroup.UPDATE] }),
+    tslib_1.__metadata("design:type", String)
+], EmployeeDto.prototype, "_id", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsMongoId)({ groups: [EmployeeDtoGroup.CREATE, EmployeeDtoGroup.UPDATE] }),
+    tslib_1.__metadata("design:type", String)
+], EmployeeDto.prototype, "roleId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)({ groups: [EmployeeDtoGroup.UPDATE] }),
+    (0, class_validator_1.MinLength)(6, { groups: [EmployeeDtoGroup.CREATE, EmployeeDtoGroup.UPDATE, EmployeeDtoGroup.LOGIN] }),
+    (0, class_validator_1.IsString)({ groups: [EmployeeDtoGroup.CREATE, EmployeeDtoGroup.UPDATE, EmployeeDtoGroup.LOGIN] }),
+    tslib_1.__metadata("design:type", String)
+], EmployeeDto.prototype, "password", void 0);
+exports.EmployeeDto = EmployeeDto;
+class EmployeeGetDto extends paging_dto_1.PagingDto {
+}
+exports.EmployeeGetDto = EmployeeGetDto;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW1wbG95ZWUuZHRvLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vc3JjL2NvbW1vbi92YWxpZGF0aW9uL2R0by9jb21tb25Vc2VyL2VtcGxveWVlL2VtcGxveWVlLmR0by50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUEscURBQTZFO0FBQzdFLGlEQUE2QztBQUM3QyxzREFBc0U7QUFFdEUsTUFBYSxnQkFBaUIsU0FBUSxtQ0FBa0I7Q0FBSTtBQUE1RCw0Q0FBNEQ7QUFFNUQsTUFBYSxXQUFZLFNBQVEsOEJBQWE7Q0FZN0M7QUFUQztJQUZDLElBQUEsNEJBQVUsRUFBQyxFQUFFLE1BQU0sRUFBRSxDQUFDLGdCQUFnQixDQUFDLE1BQU0sQ0FBQyxFQUFFLENBQUM7SUFDakQsSUFBQSwyQkFBUyxFQUFDLEVBQUUsTUFBTSxFQUFFLENBQUMsZ0JBQWdCLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQzs7d0NBQ3JDO0FBR1o7SUFEQyxJQUFBLDJCQUFTLEVBQUMsRUFBRSxNQUFNLEVBQUUsQ0FBQyxnQkFBZ0IsQ0FBQyxNQUFNLEVBQUUsZ0JBQWdCLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQzs7MkNBQzNEO0FBS2Y7SUFIQyxJQUFBLDRCQUFVLEVBQUMsRUFBRSxNQUFNLEVBQUUsQ0FBQyxnQkFBZ0IsQ0FBQyxNQUFNLENBQUMsRUFBRSxDQUFDO0lBQ2pELElBQUEsMkJBQVMsRUFBQyxDQUFDLEVBQUUsRUFBRSxNQUFNLEVBQUUsQ0FBQyxnQkFBZ0IsQ0FBQyxNQUFNLEVBQUUsZ0JBQWdCLENBQUMsTUFBTSxFQUFFLGdCQUFnQixDQUFDLEtBQUssQ0FBQyxFQUFFLENBQUM7SUFDcEcsSUFBQSwwQkFBUSxFQUFDLEVBQUUsTUFBTSxFQUFFLENBQUMsZ0JBQWdCLENBQUMsTUFBTSxFQUFFLGdCQUFnQixDQUFDLE1BQU0sRUFBRSxnQkFBZ0IsQ0FBQyxLQUFLLENBQUMsRUFBRSxDQUFDOzs2Q0FDaEY7QUFYbkIsa0NBWUM7QUFFRCxNQUFhLGNBQWUsU0FBUSxzQkFBUztDQUFJO0FBQWpELHdDQUFpRCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IElzTW9uZ29JZCwgSXNPcHRpb25hbCwgSXNTdHJpbmcsIE1pbkxlbmd0aCB9IGZyb20gJ2NsYXNzLXZhbGlkYXRvcic7XHJcbmltcG9ydCB7IFBhZ2luZ0R0byB9IGZyb20gJy4uLy4uL3BhZ2luZy5kdG8nO1xyXG5pbXBvcnQgeyBDb21tb25Vc2VyRHRvLCBDb21tb25Vc2VyRHRvR3JvdXAgfSBmcm9tICcuLi9jb21tb25Vc2VyLmR0byc7XHJcblxyXG5leHBvcnQgY2xhc3MgRW1wbG95ZWVEdG9Hcm91cCBleHRlbmRzIENvbW1vblVzZXJEdG9Hcm91cCB7IH1cclxuXHJcbmV4cG9ydCBjbGFzcyBFbXBsb3llZUR0byBleHRlbmRzIENvbW1vblVzZXJEdG8ge1xyXG4gIEBJc09wdGlvbmFsKHsgZ3JvdXBzOiBbRW1wbG95ZWVEdG9Hcm91cC5VUERBVEVdIH0pXHJcbiAgQElzTW9uZ29JZCh7IGdyb3VwczogW0VtcGxveWVlRHRvR3JvdXAuVVBEQVRFXSB9KVxyXG4gIF9pZDogc3RyaW5nO1xyXG5cclxuICBASXNNb25nb0lkKHsgZ3JvdXBzOiBbRW1wbG95ZWVEdG9Hcm91cC5DUkVBVEUsIEVtcGxveWVlRHRvR3JvdXAuVVBEQVRFXSB9KVxyXG4gIHJvbGVJZDogc3RyaW5nO1xyXG5cclxuICBASXNPcHRpb25hbCh7IGdyb3VwczogW0VtcGxveWVlRHRvR3JvdXAuVVBEQVRFXSB9KVxyXG4gIEBNaW5MZW5ndGgoNiwgeyBncm91cHM6IFtFbXBsb3llZUR0b0dyb3VwLkNSRUFURSwgRW1wbG95ZWVEdG9Hcm91cC5VUERBVEUsIEVtcGxveWVlRHRvR3JvdXAuTE9HSU5dIH0pXHJcbiAgQElzU3RyaW5nKHsgZ3JvdXBzOiBbRW1wbG95ZWVEdG9Hcm91cC5DUkVBVEUsIEVtcGxveWVlRHRvR3JvdXAuVVBEQVRFLCBFbXBsb3llZUR0b0dyb3VwLkxPR0lOXSB9KVxyXG4gIHBhc3N3b3JkOiBzdHJpbmc7XHJcbn1cclxuXHJcbmV4cG9ydCBjbGFzcyBFbXBsb3llZUdldER0byBleHRlbmRzIFBhZ2luZ0R0byB7IH0iXX0=
