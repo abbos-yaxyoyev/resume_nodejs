@@ -136,9 +136,9 @@ export async function getOneCourseHandler(request, reply) {
 
     let data = await validateIt(request.params, CourseDto, [CourseDtoGroup.GET_BY_ID]);
 
-    const course = await courseService.findByIdError(data._id)
+    const { _id, name, description, createdAt } = await courseService.findByIdError(data._id)
 
-    return reply.success(course);
+    return reply.success({ _id, name, description, createdAt });
 
   } catch (e) {
     if (e instanceof CourseException) {

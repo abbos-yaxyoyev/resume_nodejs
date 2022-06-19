@@ -1,5 +1,4 @@
-import { Transform } from 'class-transformer';
-import { IsOptional, IsPhoneNumber, IsString, MinLength, ValidateIf } from 'class-validator';
+import { IsOptional, IsString, MinLength } from 'class-validator';
 import { CommonDto, CommonDtoGroup } from '../../common.dto';
 
 export class CommonUserDtoGroup extends CommonDtoGroup {
@@ -13,22 +12,7 @@ export class CommonUserDto extends CommonDto {
     groups: [CommonUserDtoGroup.CREATE, CommonUserDtoGroup.UPDATE],
   })
   @IsString({ groups: [CommonUserDtoGroup.CREATE, CommonUserDtoGroup.UPDATE] })
-  firstName: string;
-
-  @IsOptional({ groups: [CommonUserDtoGroup.UPDATE, CommonUserDtoGroup.CREATE] })
-  @IsString({ groups: [CommonUserDtoGroup.CREATE, CommonUserDtoGroup.UPDATE] })
-  lastName: string;
-
-  @IsOptional({ groups: [CommonUserDtoGroup.UPDATE, CommonUserDtoGroup.CREATE] })
-  @IsString({ groups: [CommonUserDtoGroup.CREATE, CommonUserDtoGroup.UPDATE] })
-  imgUrl: string;
-
-  @IsOptional({ groups: [CommonUserDtoGroup.UPDATE] })
-  @Transform(({ value }) => `+${value?.replace(/[^0-9]/g, '')}`)
-  @IsPhoneNumber(null, {
-    groups: [CommonUserDtoGroup.CREATE, CommonUserDtoGroup.UPDATE, CommonUserDtoGroup.LOGIN],
-  })
-  phoneNumber: string;
+  fullName: string;
 
   @IsOptional({ groups: [CommonUserDtoGroup.CREATE, CommonUserDtoGroup.UPDATE] })
   @MinLength(5, {
@@ -38,12 +22,4 @@ export class CommonUserDto extends CommonDto {
   @IsString({ groups: [CommonUserDtoGroup.CREATE, CommonUserDtoGroup.UPDATE, CommonUserDtoGroup.LOGIN] })
   password: string;
 
-  @IsOptional({ groups: [CommonUserDtoGroup.CREATE, CommonUserDtoGroup.UPDATE] })
-  @ValidateIf((data, value) => value != null)
-  @MinLength(2, {
-    message: 'Title is too short. Minimal length is 2 characters',
-    groups: [CommonUserDtoGroup.CREATE, CommonUserDtoGroup.UPDATE],
-  })
-  @IsString({ groups: [CommonUserDtoGroup.CREATE, CommonUserDtoGroup.UPDATE] })
-  biography: string;
 }

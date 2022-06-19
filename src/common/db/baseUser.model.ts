@@ -13,21 +13,6 @@ import { CommonModel } from './models/base.model';
 
 @index(
   {
-    phoneNumber: 1,
-  },
-  {
-    unique: true,
-    name: 'phoneNumber',
-    background: true,
-    partialFilterExpression: {
-      isDeleted: false,
-      $type: 'boolean',
-    },
-  },
-)
-
-@index(
-  {
     password: 1,
   },
   {
@@ -43,19 +28,7 @@ import { CommonModel } from './models/base.model';
 
 export class CommonUser extends CommonModel {
   @prop({ trim: true })
-  public firstName!: string;
-
-  @prop({ trim: true })
-  public lastName?: string;
-
-  @prop({ trim: true })
-  public imgUrl?: string;
-
-  @prop({ trim: true })
-  public phoneNumber: string;
-
-  @prop({ trim: true })
-  public biography?: string;
+  public fullName!: string;
 
   @prop({ required: true, trim: true, minlength: 5 })
   public password: string;

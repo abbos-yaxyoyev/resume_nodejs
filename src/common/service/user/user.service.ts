@@ -18,11 +18,7 @@ class UserService extends CommonUserService<User> {
       const $projection = {
         $project: {
           _id: 1,
-          firstName: 1,
-          lastName: 1,
-          phoneNumber: 1,
-          biography: 1
-
+          fullName: 1,
         },
       };
 
@@ -48,10 +44,7 @@ class UserService extends CommonUserService<User> {
       const $projection = {
         $project: {
           _id: 1,
-          lastName: 1,
-          firstName: 1,
-          biography: 1,
-          phoneNumber: 1,
+          fullName: 1
         },
       };
 

@@ -45,12 +45,9 @@ class CoursesOfUserService extends CommonServices<CoursesOfUser>{
             },
             {
               $project: {
-                firstName: 1,
-                lastName: 1,
-                phoneNumber: 1,
+                fullName: 1,
                 imgUrl: 1,
                 createdAt: 1,
-                updatedAt: 1
               }
             }
 
@@ -125,8 +122,7 @@ class CoursesOfUserService extends CommonServices<CoursesOfUser>{
                 name: 1,
                 imgUrl: 1,
                 description: 1,
-                createdAt: 1,
-                updatedAt: 1
+                createdAt: 1
               }
             }
 

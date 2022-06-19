@@ -1,11 +1,10 @@
-import { getModelForClass, index, modelOptions, prop, Ref } from '@typegoose/typegoose';
-import { Types } from 'mongoose';
+import { getModelForClass, index, modelOptions, prop } from '@typegoose/typegoose';
 import { COLLECTIONS } from '../../../constants/collections';
 import { CommonModel } from '../base.model';
 
 @modelOptions({
   schemaOptions: {
-    collection: COLLECTIONS.GENRE,
+    collection: COLLECTIONS.CATEGORY,
   },
 })
 @index(
@@ -35,7 +34,7 @@ import { CommonModel } from '../base.model';
   },
 )
 
-export class Genre extends CommonModel {
+export class Category extends CommonModel {
   @prop({
     required: true,
     trim: true
@@ -44,12 +43,5 @@ export class Genre extends CommonModel {
 
   @prop({ trim: true })
   imgUrl?: string;
-
-  @prop({
-    type: Types.ObjectId,
-    ref: COLLECTIONS.GENRE,
-    default: undefined
-  })
-  parentId?: Ref<Genre>;
 }
-export const GenreModel = getModelForClass(Genre);
+export const CategoryModel = getModelForClass(Category);

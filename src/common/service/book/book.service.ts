@@ -19,7 +19,7 @@ class BookService extends CommonServices<Books> {
   public async getPaging<T>(dto: BookGetDto) {
     try {
 
-      let { search, authorId, genreId, } = dto;
+      let { search, authorId, categoryId, } = dto;
 
       const query: any = {
         isDeleted: false,
@@ -39,10 +39,8 @@ class BookService extends CommonServices<Books> {
         query['authorId'] = authorId;
       }
 
-      if (genreId) {
-        query['genreIds'] = {
-          $elemMatch: { $in: genreId }
-        };
+      if (categoryId) {
+        query['categoryId'] = categoryId;
       }
 
       const $lookupAuthor = {
@@ -57,34 +55,7 @@ class BookService extends CommonServices<Books> {
       const $unwindAuthor = {
         $unwind: {
           path: '$author',
-          preserveNullAndEmptyArrays: false,
-        },
-      };
-
-      const $lookupGenre = {
-        $lookup: {
-          from: COLLECTIONS.GENRE,
-          let: {
-            genreIds: '$genreIds',
-          },
-          pipeline: [
-            {
-              $match: {
-                isDeleted: false,
-                $expr: {
-                  $in: ['$_id', '$$genreIds'],
-                },
-              },
-            },
-            {
-              $project: {
-                _id: 1,
-                name: 1,
-                imgUrl: 1,
-              },
-            },
-          ],
-          as: 'genre',
+          preserveNullAndEmptyArrays: true,
         },
       };
 
@@ -92,17 +63,12 @@ class BookService extends CommonServices<Books> {
         $project: {
           _id: 1,
           name: 1,
-          description: 1,
-
           author: {
             _id: 1,
             imgUrl: 1,
-            fullName: 1,
-            dateOfbirth: 1,
-            dateOfdeath: 1,
+            fullName: 1
           },
 
-          genre: 1,
           imgUrl: 1,
 
         },
@@ -111,7 +77,6 @@ class BookService extends CommonServices<Books> {
       const $pipeline = [
         $lookupAuthor,
         $unwindAuthor,
-        $lookupGenre,
         $projection,
       ];
 
@@ -127,33 +92,6 @@ class BookService extends CommonServices<Books> {
         $match: {
           isDeleted: false,
           _id: new Types.ObjectId(id),
-        },
-      };
-
-      const $lookupGenre = {
-        $lookup: {
-          from: COLLECTIONS.GENRE,
-          let: {
-            genreIds: '$genreIds',
-          },
-          pipeline: [
-            {
-              $match: {
-                isDeleted: false,
-                $expr: {
-                  $in: ['$_id', '$$genreIds']
-                }
-              },
-            },
-            {
-              $project: {
-                _id: 1,
-                name: 1,
-                imgUrl: 1,
-              },
-            },
-          ],
-          as: 'genre',
         },
       };
 
@@ -178,17 +116,12 @@ class BookService extends CommonServices<Books> {
           _id: 1,
           name: 1,
           imgUrl: 1,
-          description: 1,
 
           author: {
             _id: 1,
             imgUrl: 1,
-            fullName: 1,
-            dateOfbirth: 1,
-            dateOfdeath: 1,
+            fullName: 1
           },
-
-          genre: 1,
 
         },
       };
@@ -197,7 +130,6 @@ class BookService extends CommonServices<Books> {
         $match,
         $lookupAuthor,
         $unwindAuthor,
-        $lookupGenre,
         $projection,
       ];
 

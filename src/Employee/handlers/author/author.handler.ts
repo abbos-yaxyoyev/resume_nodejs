@@ -27,6 +27,8 @@ export async function updateAuthorHandler(request, reply) {
 
     const data = await validateIt(request.body, AuthorDto, [AuthorDtoGroup.UPDATE]);
 
+    await authorService.findByIdError(data._id);
+
     const author = await authorService.updateOne(data._id, data, { new: true });
 
     return reply.success(author._id);

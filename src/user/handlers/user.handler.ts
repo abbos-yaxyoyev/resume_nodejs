@@ -10,18 +10,18 @@ export async function signUpHandler(request, reply) {
   try {
     const data = await validateIt(request.body, UserDto, [CommonDtoGroup.CREATE]);
 
-    const checkUser = await userService.findByPhone(data.phoneNumber);
+    const checkUser = await userService.findOne({ password: md5(data.password) });
 
-    if (checkUser) throw UserException.AllreadyExist(data.phoneNumber);
+    if (checkUser) throw UserException.AllreadyExist(data.password);
     data.password = md5(data.password);
-    const { _id, firstName, lastName, phoneNumber, biography, } = await userService.create(data);
+    const { _id, fullName, password, } = await userService.create(data);
 
 
     const token = await jwtSign(request, { _id });
 
     return reply.success({
       token,
-      user: { _id, firstName, lastName, phoneNumber, biography, }
+      user: { _id, fullName }
     });
 
   } catch (e) {
@@ -33,9 +33,9 @@ export async function signInHandler(request, reply) {
   try {
     const data = await validateIt(request.body, UserDto, [UserDtoGroup.LOGIN]);
 
-    const { _id, firstName, lastName, phoneNumber, biography, password } = await userService.findOne({ phoneNumber: data.phoneNumber, password: md5(data.password) });
+    const { _id, fullName, password } = await userService.findOne({ password: md5(data.password) });
 
-    if (!firstName || !lastName || !phoneNumber) throw UserException.NotFound({ phoneNumber: data.phoneNumber, password: md5(data.password) });
+    if (!fullName) throw UserException.NotFound(data.password);
 
     if (md5(data.password) != password) throw UserException.InvalidPassword();
 
@@ -43,7 +43,7 @@ export async function signInHandler(request, reply) {
 
     return reply.success({
       token,
-      user: { _id, firstName, lastName, phoneNumber, biography, }
+      user: { _id, fullName }
     });
 
   } catch (e) {
@@ -63,9 +63,9 @@ export async function updateProfileHandler(request, reply) {
 
     if (data.password) data.password = md5(data.password);
 
-    const { _id, firstName, lastName, phoneNumber } = await userService.updateOne(data._id, data, { new: true });
+    const { _id, fullName } = await userService.updateOne(data._id, data, { new: true });
 
-    return reply.success({ _id, firstName, lastName, phoneNumber });
+    return reply.success({ _id, fullName });
 
   } catch (e) {
     throw UserException.UnknownError(e);
@@ -77,9 +77,9 @@ export async function getProfileHandler(request, reply) {
 
     const userId = request.user._id.toString()
 
-    const { _id, firstName, lastName, phoneNumber, imgUrl, createdAt } = await userService.findByIdError(userId);
+    const { _id, fullName, createdAt } = await userService.findByIdError(userId);
 
-    return reply.success({ _id, firstName, lastName, phoneNumber, imgUrl, createdAt });
+    return reply.success({ _id, fullName, createdAt });
 
   } catch (e) {
     if (e instanceof UserException) {

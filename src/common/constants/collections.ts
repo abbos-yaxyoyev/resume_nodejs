@@ -1,7 +1,7 @@
 export enum COLLECTIONS {
   EMPLOYEE = 'employees',
   USER = 'users',
-  GENRE = 'genres',
+  CATEGORY = 'category',
   AUTHOR = 'authors',
   BOOK = 'books',
   ROLE = 'roles',

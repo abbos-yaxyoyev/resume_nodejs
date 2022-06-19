@@ -99,7 +99,6 @@ class CourseService extends CommonServices<Course>{
                 videoUrl: 1,
                 description: 1,
                 createdAt: 1,
-                updatedAt: 1
               }
             }
 
@@ -135,7 +134,7 @@ class CourseService extends CommonServices<Course>{
   public async getCourseOneWithCourseParts(id: string) {
     try {
 
-      let $match = {
+      const $match = {
         $match: {
           isDeleted: false,
           _id: new Types.ObjectId(id)
@@ -163,7 +162,6 @@ class CourseService extends CommonServices<Course>{
                 videoUrl: 1,
                 description: 1,
                 createdAt: 1,
-                updatedAt: 1
               }
             }
 

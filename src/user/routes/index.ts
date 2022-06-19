@@ -1,16 +1,16 @@
 import fp from 'fastify-plugin';
 import { authorRoutes } from './author/routes';
 import { bookRoutes } from './book/routes';
+import { categoryRoutes } from './category/routes';
 import { coursesOfUserRoutes } from './course/coursesOfUser/routes';
 import { courseRoutes } from './course/routes';
-import { genreRoutes } from './genre/routes';
 import { userRoutes } from './user/routes';
 
 
 const routes = [
   ...userRoutes,
   ...bookRoutes,
-  ...genreRoutes,
+  ...categoryRoutes,
   ...authorRoutes,
   ...courseRoutes,
   // ...uploadFileRoutes,

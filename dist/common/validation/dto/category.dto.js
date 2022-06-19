@@ -1,0 +1,32 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CategoryGetDto = exports.CategoryDto = exports.CategoryDtoGroup = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+const common_dto_1 = require("../common.dto");
+const paging_dto_1 = require("./paging.dto");
+class CategoryDtoGroup extends common_dto_1.CommonDtoGroup {
+}
+exports.CategoryDtoGroup = CategoryDtoGroup;
+class CategoryDto extends common_dto_1.CommonDto {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsString)({ groups: [CategoryDtoGroup.CREATE, CategoryDtoGroup.UPDATE] }),
+    tslib_1.__metadata("design:type", String)
+], CategoryDto.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)({ groups: [CategoryDtoGroup.CREATE, CategoryDtoGroup.UPDATE] }),
+    (0, class_validator_1.ValidateIf)((data, value) => value != null),
+    (0, class_validator_1.IsString)({ groups: [CategoryDtoGroup.CREATE, CategoryDtoGroup.UPDATE] }),
+    tslib_1.__metadata("design:type", String)
+], CategoryDto.prototype, "imgUrl", void 0);
+exports.CategoryDto = CategoryDto;
+class CategoryGetDto extends paging_dto_1.PagingDto {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)({ groups: [CategoryDtoGroup.PAGENATION] }),
+    (0, class_validator_1.IsMongoId)({ groups: [CategoryDtoGroup.PAGENATION] }),
+    tslib_1.__metadata("design:type", String)
+], CategoryGetDto.prototype, "_id", void 0);
+exports.CategoryGetDto = CategoryGetDto;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2F0ZWdvcnkuZHRvLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vc3JjL2NvbW1vbi92YWxpZGF0aW9uL2R0by9jYXRlZ29yeS5kdG8udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLHFEQUd5QjtBQUN6Qiw4Q0FBMEQ7QUFDMUQsNkNBQXlDO0FBRXpDLE1BQWEsZ0JBQWlCLFNBQVEsMkJBQWM7Q0FBSTtBQUF4RCw0Q0FBd0Q7QUFFeEQsTUFBYSxXQUFZLFNBQVEsc0JBQVM7Q0FRekM7QUFOQztJQURDLElBQUEsMEJBQVEsRUFBQyxFQUFFLE1BQU0sRUFBRSxDQUFDLGdCQUFnQixDQUFDLE1BQU0sRUFBRSxnQkFBZ0IsQ0FBQyxNQUFNLENBQUMsRUFBRSxDQUFDOzt5Q0FDNUQ7QUFLYjtJQUhDLElBQUEsNEJBQVUsRUFBQyxFQUFFLE1BQU0sRUFBRSxDQUFDLGdCQUFnQixDQUFDLE1BQU0sRUFBRSxnQkFBZ0IsQ0FBQyxNQUFNLENBQUMsRUFBRSxDQUFDO0lBQzFFLElBQUEsNEJBQVUsRUFBQyxDQUFDLElBQUksRUFBRSxLQUFLLEVBQUUsRUFBRSxDQUFDLEtBQUssSUFBSSxJQUFJLENBQUM7SUFDMUMsSUFBQSwwQkFBUSxFQUFDLEVBQUUsTUFBTSxFQUFFLENBQUMsZ0JBQWdCLENBQUMsTUFBTSxFQUFFLGdCQUFnQixDQUFDLE1BQU0sQ0FBQyxFQUFFLENBQUM7OzJDQUMxRDtBQVBqQixrQ0FRQztBQUVELE1BQWEsY0FBZSxTQUFRLHNCQUFTO0NBSTVDO0FBREM7SUFGQyxJQUFBLDRCQUFVLEVBQUMsRUFBRSxNQUFNLEVBQUUsQ0FBQyxnQkFBZ0IsQ0FBQyxVQUFVLENBQUMsRUFBRSxDQUFDO0lBQ3JELElBQUEsMkJBQVMsRUFBQyxFQUFFLE1BQU0sRUFBRSxDQUFDLGdCQUFnQixDQUFDLFVBQVUsQ0FBQyxFQUFFLENBQUM7OzJDQUN6QztBQUhkLHdDQUlDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcclxuICBJc01vbmdvSWQsIElzT3B0aW9uYWwsXHJcbiAgSXNTdHJpbmcsIFZhbGlkYXRlSWZcclxufSBmcm9tICdjbGFzcy12YWxpZGF0b3InO1xyXG5pbXBvcnQgeyBDb21tb25EdG8sIENvbW1vbkR0b0dyb3VwIH0gZnJvbSAnLi4vY29tbW9uLmR0byc7XHJcbmltcG9ydCB7IFBhZ2luZ0R0byB9IGZyb20gJy4vcGFnaW5nLmR0byc7XHJcblxyXG5leHBvcnQgY2xhc3MgQ2F0ZWdvcnlEdG9Hcm91cCBleHRlbmRzIENvbW1vbkR0b0dyb3VwIHsgfVxyXG5cclxuZXhwb3J0IGNsYXNzIENhdGVnb3J5RHRvIGV4dGVuZHMgQ29tbW9uRHRvIHtcclxuICBASXNTdHJpbmcoeyBncm91cHM6IFtDYXRlZ29yeUR0b0dyb3VwLkNSRUFURSwgQ2F0ZWdvcnlEdG9Hcm91cC5VUERBVEVdIH0pXHJcbiAgbmFtZTogc3RyaW5nO1xyXG5cclxuICBASXNPcHRpb25hbCh7IGdyb3VwczogW0NhdGVnb3J5RHRvR3JvdXAuQ1JFQVRFLCBDYXRlZ29yeUR0b0dyb3VwLlVQREFURV0gfSlcclxuICBAVmFsaWRhdGVJZigoZGF0YSwgdmFsdWUpID0+IHZhbHVlICE9IG51bGwpXHJcbiAgQElzU3RyaW5nKHsgZ3JvdXBzOiBbQ2F0ZWdvcnlEdG9Hcm91cC5DUkVBVEUsIENhdGVnb3J5RHRvR3JvdXAuVVBEQVRFXSB9KVxyXG4gIGltZ1VybDogc3RyaW5nO1xyXG59XHJcblxyXG5leHBvcnQgY2xhc3MgQ2F0ZWdvcnlHZXREdG8gZXh0ZW5kcyBQYWdpbmdEdG8ge1xyXG4gIEBJc09wdGlvbmFsKHsgZ3JvdXBzOiBbQ2F0ZWdvcnlEdG9Hcm91cC5QQUdFTkFUSU9OXSB9KVxyXG4gIEBJc01vbmdvSWQoeyBncm91cHM6IFtDYXRlZ29yeUR0b0dyb3VwLlBBR0VOQVRJT05dIH0pXHJcbiAgX2lkOiBzdHJpbmc7XHJcbn1cclxuIl19

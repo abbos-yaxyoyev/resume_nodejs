@@ -3,7 +3,7 @@ import { Types } from 'mongoose';
 import { COLLECTIONS } from '../../../constants/collections';
 import { Author } from '../author/models';
 import { CommonModel } from '../base.model';
-import { Genre } from '../genre/models';
+import { Category } from '../category/models';
 
 @modelOptions({
   schemaOptions: {
@@ -24,7 +24,7 @@ import { Genre } from '../genre/models';
   {
     name: 1,
     authorId: 1,
-    genreIds: 1,
+    categoryId: 1,
   },
   {
     background: true,
@@ -45,11 +45,6 @@ export class Books extends CommonModel {
   name: string;
 
   @prop({
-    trim: true
-  })
-  description: string;
-
-  @prop({
     required: true,
     trim: true,
   })
@@ -58,8 +53,8 @@ export class Books extends CommonModel {
   @prop({ type: Types.ObjectId, ref: COLLECTIONS.AUTHOR })
   authorId?: Ref<Author>;
 
-  @prop({ type: [Types.ObjectId], ref: COLLECTIONS.GENRE })
-  genreIds: Ref<Genre>[];
+  @prop({ type: Types.ObjectId, ref: COLLECTIONS.CATEGORY })
+  categoryId: Ref<Category>;
 
 }
 export const BooksModel = getModelForClass(Books);

@@ -107,9 +107,9 @@ export async function getPagingEmployeeHandler(request, reply) {
 
     const data = await validateIt(request.query, EmployeeGetDto, [EmployeeDtoGroup.PAGENATION]);
 
-    const admins = await employeeService.getPaging(data);
+    const employee = await employeeService.getPaging(data);
 
-    return reply.success(admins);
+    return reply.success(employee);
 
   } catch (e) {
     if (e instanceof EmployeeException) {
@@ -163,17 +163,17 @@ export async function signInHandler(request, reply) {
   try {
     const data = await validateIt(request.body, EmployeeDto, [EmployeeDtoGroup.LOGIN]);
 
-    const admin = await employeeService.findByPhone(data.phoneNumber);
+    const { _id, fullName, password, createdAt } = await employeeService.findByPasswordError(data.password);
 
-    if (!admin) throw EmployeeException.NotFound(data.phoneNumber);
+    if (!fullName) throw EmployeeException.NotFound(data.password);
 
-    if (md5(data.password) != admin.password) throw EmployeeException.InvalidPassword();
+    if (md5(data.password) != password) throw EmployeeException.InvalidPassword();
 
-    const token = await jwtSign(request, { _id: admin._id });
+    const token = await jwtSign(request, { _id });
 
     return reply.success({
       token,
-      admin
+      employee: { _id, fullName, createdAt }
     });
   } catch (e) {
     if (e instanceof EmployeeException) {

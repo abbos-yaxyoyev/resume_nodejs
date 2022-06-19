@@ -33,13 +33,5 @@ export class Author extends CommonModel {
   @prop({ trim: true, })
   imgUrl: string;
 
-  @prop({ trim: true, })
-  biography?: string;
-
-  @prop({ required: true, })
-  dateOfbirth: Date;
-
-  @prop({})
-  dateOfdeath?: Date;
 }
 export const AuthorModel = getModelForClass(Author);

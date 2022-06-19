@@ -34,9 +34,7 @@ class EmployeeService extends CommonUserService<Employee> {
       const $projection = {
         $project: {
           _id: 1,
-          firstName: 1,
-          lastName: 1,
-          phoneNumber: 1,
+          fullName: 1,
           role: {
             _id: 1,
             name: 1,
@@ -82,11 +80,7 @@ class EmployeeService extends CommonUserService<Employee> {
       const $projection = {
         $project: {
           _id: 1,
-          isActive: 1,
-          lastName: 1,
-          firstName: 1,
-          biography: 1,
-          phoneNumber: 1,
+          fullName: 1,
           role: {
             _id: 1,
             name: 1,

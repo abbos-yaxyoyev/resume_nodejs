@@ -58,8 +58,6 @@ class AuthorService extends CommonServices<Author> {
           _id: 1,
           imgUrl: 1,
           fullName: 1,
-          dateOfdeath: 1,
-          dateOfbirth: 1,
 
           bookCount: {
             $size: "$books"
@@ -90,10 +88,7 @@ class AuthorService extends CommonServices<Author> {
         $project: {
           _id: 1,
           imgUrl: 1,
-          fullName: 1,
-          dateOfdeath: 1,
-          dateOfbirth: 1,
-          biography: 1,
+          fullName: 1
         },
       };
 
