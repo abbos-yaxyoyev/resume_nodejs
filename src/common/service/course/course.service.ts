@@ -49,7 +49,7 @@ class CourseService extends CommonServices<Course>{
         dto.limit = await this.count(query)
       }
 
-      return await this.findPaging(query, dto, $pipeline, { position: 1, _id: 1 })
+      return await this.findPaging(query, dto, $pipeline)
     } catch (e) {
       console.log("error Course paging: ", e);
       throw CourseException.UnknownError(e);

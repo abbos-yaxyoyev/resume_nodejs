@@ -16,6 +16,11 @@ export class CourseDto extends CommonDto {
   @IsString({ groups: [CourseDtoGroup.CREATE, CourseDtoGroup.UPDATE] })
   imgUrl: string;
 
+  @IsOptional({ groups: [CourseDtoGroup.CREATE, CourseDtoGroup.UPDATE] })
+  @ValidateIf((data, value) => value != null)
+  @IsString({ groups: [CourseDtoGroup.CREATE, CourseDtoGroup.UPDATE] })
+  videoUrl: string;
+
   //!descriptions
   @IsOptional({
     groups: [CourseDtoGroup.CREATE, CourseDtoGroup.UPDATE],
