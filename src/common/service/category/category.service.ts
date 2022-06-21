@@ -64,6 +64,8 @@ class CategoryService extends CommonServices<Category> {
                 _id: 1,
                 name: 1,
                 imgUrl: 1,
+                ebookUrl: 1,
+                description: 1,
                 author: {
                   fullName: 1,
                   imgUrl: 1,
@@ -144,6 +146,8 @@ class CategoryService extends CommonServices<Category> {
                 _id: 1,
                 name: 1,
                 imgUrl: 1,
+                ebookUrl: 1,
+                description: 1,
                 author: {
                   fullName: 1,
                   imgUrl: 1,

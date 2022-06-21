@@ -70,6 +70,8 @@ class BookService extends CommonServices<Books> {
           },
 
           imgUrl: 1,
+          ebookUrl: 1,
+          description: 1,
 
         },
       };
@@ -116,6 +118,8 @@ class BookService extends CommonServices<Books> {
           _id: 1,
           name: 1,
           imgUrl: 1,
+          ebookUrl: 1,
+          description: 1,
 
           author: {
             _id: 1,

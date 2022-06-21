@@ -20,6 +20,14 @@ export class BookDto extends CommonDto {
   @IsString({ groups: [BookDtoGroup.CREATE, BookDtoGroup.UPDATE] })
   imgUrl: string;
 
+  @IsOptional({ groups: [BookDtoGroup.UPDATE] })
+  @IsString({ groups: [BookDtoGroup.CREATE, BookDtoGroup.UPDATE] })
+  ebookUrl: string;
+
+  @IsOptional({ groups: [BookDtoGroup.UPDATE] })
+  @IsString({ groups: [BookDtoGroup.CREATE, BookDtoGroup.UPDATE] })
+  description: string;
+
   @IsOptional({ groups: [BookDtoGroup.CREATE, BookDtoGroup.UPDATE] })
   @ValidateIf((data, value) => value != null)
   @IsMongoId({ groups: [BookDtoGroup.CREATE, BookDtoGroup.UPDATE] })

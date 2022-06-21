@@ -36,7 +36,7 @@ class AuthorService extends CommonServices<Author> {
         $lookup: {
           from: COLLECTIONS.BOOK,
           let: {
-            authorId: '$_id',
+            authorId: '$authorId',
           },
           pipeline: [
             {

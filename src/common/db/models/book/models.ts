@@ -50,6 +50,18 @@ export class Books extends CommonModel {
   })
   imgUrl: string;
 
+  @prop({
+    required: true,
+    trim: true,
+  })
+  ebookUrl: string;
+
+  @prop({
+    trim: true,
+  })
+  description?: string;
+
+
   @prop({ type: Types.ObjectId, ref: COLLECTIONS.AUTHOR })
   authorId?: Ref<Author>;
 
