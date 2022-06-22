@@ -20,6 +20,10 @@ class RoleService extends CommonServices<Role> {
 
   public async hasAccess(id: string, access: string) {
     const role = await this.findById(id);
+    console.log("roles: ", role);
+    console.log("role[access]: ", role[access]);
+    console.log(" role.isDeleted: ", role.isDeleted);
+
     if (!role[access] || role.isDeleted) throw EmployeeException.NotEnoughPermission();
   }
 

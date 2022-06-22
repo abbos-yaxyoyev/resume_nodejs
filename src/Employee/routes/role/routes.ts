@@ -1,6 +1,6 @@
 import { API } from '../../../common/config';
 import {
-  createRoleHandler, deleteOneRoleHandler, getOneRoledHandler, getPagingRoleHandler, updateRoleHandler
+  createRoleHandler, getOneRoledHandler, getPagingRoleHandler, updateRoleHandler
 } from '../../handlers/role/role.handler';
 import { authEmployee } from '../../middleware/authenticate';
 
@@ -29,10 +29,10 @@ export const roleRoutes = [
     preValidation: [authEmployee],
     handler: getPagingRoleHandler,
   },
-  {
-    method: 'DELETE',
-    url: `${API.admin_api}/role/:_id`,
-    preValidation: [authEmployee],
-    handler: deleteOneRoleHandler,
-  },
+  // {
+  //   method: 'DELETE',
+  //   url: `${API.admin_api}/role/:_id`,
+  //   preValidation: [authEmployee],
+  //   handler: deleteOneRoleHandler,
+  // },
 ];
