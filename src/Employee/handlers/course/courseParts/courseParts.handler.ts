@@ -31,7 +31,7 @@ export async function updateCoursePartsHandler(request, reply) {
 
     await roleService.hasAccess(request.admin.roleId, Roles.COURSE_UPDATE)
 
-    const data = await validateIt(request.body, CoursePartsDto, CoursePartsDtoGroup.POSITION)
+    const data = await validateIt(request.body, CoursePartsDto, CoursePartsDtoGroup.UPDATE)
 
     await coursePartsService.updateOneByQuery(
       { _id: new Types.ObjectId(data._id) },

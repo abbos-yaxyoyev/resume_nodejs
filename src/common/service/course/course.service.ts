@@ -188,7 +188,7 @@ class CourseService extends CommonServices<Course>{
 
 
       const data = await this.aggregate($pipline);
-      if (!data || !data[0]) throw CourseException.NotFound(id)
+      if (!data[0]) throw CourseException.NotFound(id)
       return data[0];
     } catch (e) {
       console.log("error category items paging: ", e);
