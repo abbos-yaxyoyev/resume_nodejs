@@ -49,6 +49,26 @@ export async function updateCoursePartsHandler(request, reply) {
   }
 }
 
+export async function getOneCoursePartsHandler(request, reply) {
+  try {
+
+    await roleService.hasAccess(request.admin.roleId, Roles.COURSE_UPDATE)
+
+    const data = await validateIt(request.params, CoursePartsDto, CoursePartsDtoGroup.GET_BY_ID)
+
+    const { _id, imgUrl, videoUrl, description } = await coursePartsService.findByIdError(data._id)
+
+    return reply.success({ _id, imgUrl, videoUrl, description });
+
+  } catch (e) {
+    if (e instanceof CourseException) {
+      throw e;
+    } else {
+      throw CourseException.UnknownError(e);
+    }
+  }
+}
+
 export async function deleteOneCoursePartsHandler(request, reply) {
 
   try {

@@ -1,5 +1,5 @@
 import { API } from '../../../../common/config';
-import { createCoursePartsHandler, deleteOneCoursePartsHandler, updateCoursePartsHandler } from '../../../handlers/course/courseParts/courseParts.handler';
+import { createCoursePartsHandler, deleteOneCoursePartsHandler, getOneCoursePartsHandler, updateCoursePartsHandler } from '../../../handlers/course/courseParts/courseParts.handler';
 import { authEmployee } from '../../../middleware/authenticate';
 
 
@@ -15,6 +15,12 @@ export const coursePartsRoutes = [
     url: `${API.admin_api}/courseParts`,
     preValidation: [authEmployee],
     handler: updateCoursePartsHandler,
+  },
+  {
+    method: 'GET',
+    url: `${API.admin_api}/courseParts/:_id`,
+    preValidation: [authEmployee],
+    handler: getOneCoursePartsHandler,
   },
   {
     method: 'DELETE',

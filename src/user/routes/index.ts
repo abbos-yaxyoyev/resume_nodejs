@@ -2,6 +2,7 @@ import fp from 'fastify-plugin';
 import { authorRoutes } from './author/routes';
 import { bookRoutes } from './book/routes';
 import { categoryRoutes } from './category/routes';
+import { coursePartsRoutes } from './course/courseParts/routes';
 import { coursesOfUserRoutes } from './course/coursesOfUser/routes';
 import { courseRoutes } from './course/routes';
 import { userRoutes } from './user/routes';
@@ -13,6 +14,7 @@ const routes = [
   ...categoryRoutes,
   ...authorRoutes,
   ...courseRoutes,
+  ...coursePartsRoutes,
   // ...uploadFileRoutes,
   ...coursesOfUserRoutes,
 ];

@@ -12,6 +12,11 @@ export class RoleDto extends CommonDto {
   })
   name: string;
 
+  @IsString({
+    groups: [RoleDtoGroup.UPDATE, RoleDtoGroup.CREATE],
+  })
+  description: string;
+
   //genres 
   @IsBoolean({
     groups: [RoleDtoGroup.CREATE, RoleDtoGroup.UPDATE]
